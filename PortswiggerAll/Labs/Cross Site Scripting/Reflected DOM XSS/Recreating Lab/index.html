@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1> Eval </h1>
+	<p id="page"></p>
+</body>
+<script>
+	var xmlHttp = new XMLHttpRequest();
+	var url = 'http://127.0.0.1:5500/PortswiggerAll/Labs/Cross%20Site%20Scripting/Reflected%20DOM%20XSS/Recreating%20Lab/data.json';
+	xmlHttp.onreadystatechange =function(){
+		if (this.readyState = 4 && this.status ==200){
+			console.log(this.response);
+			let myObj = this.response;
+			console.log(typeof this.response);
+			document.getElementById('page').innerText=myObj.someData;
+		}
+	}
+
+	xmlHttp.open("GET", url, true);
+	xmlHttp.send();
+</script>
+</html>

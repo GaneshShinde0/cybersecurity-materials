@@ -1,0 +1,4 @@
+# Feroxbuster
+-> Install from github
+-> ./feroxbuster -u <url> -w commons.txt
+
